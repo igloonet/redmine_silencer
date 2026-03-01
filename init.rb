@@ -1,29 +1,19 @@
-require 'redmine'
-
 Redmine::Plugin.register :redmine_silencer do
-  name 'Redmine Silencer 2'
-  author 'Tobias Fischer'
-  description 'A Redmine plugin to suppress email notifications (at will) when updating issues. (This is a fork by GitHub users @commandprompt, @tofi86 and @paginagmbh of the original plugin made by @a1exsh!)'
-  version '0.4.1'
-  url 'https://github.com/paginagmbh/redmine_silencer'
-  requires_redmine :version_or_higher => '2.4.x'
+  name 'Redmine Silencer'
+  author 'igloonet (fork of paginagmbh/redmine_silencer)'
+  description 'Suppress email notifications when updating issues'
+  version '2.0.0'
+  url 'https://git.igloonet.cz/redmine/redmine_silencer'
+  requires_redmine version_or_higher: '6.0'
 
   permission :suppress_mail_notifications, {}
-  
-  settings :default => {
-    'silencer_default' => false
-  }, :partial => 'redmine_silencer_settings'
+
+  settings default: {
+    'silencer_default' => '0'
+  }, partial: 'settings/redmine_silencer_settings'
 end
 
-prepare_block = Proc.new do
-  Journal.send(:include, RedmineSilencer::JournalPatch)
-end
-
-if Rails.env.development?
-  ActionDispatch::Reloader.to_prepare { prepare_block.call }
-else
-  prepare_block.call
-end
-
-require 'redmine_silencer/issue_hooks'
-require 'redmine_silencer/view_hooks'
+# No Journal patching needed -- R6 has Journal#notify? and Journal#notify= natively!
+# We only need hook listeners for UI and controller behavior.
+require_relative 'lib/redmine_silencer/issue_hooks'
+require_relative 'lib/redmine_silencer/view_hooks'

@@ -1,5 +1,4 @@
-# English strings go here for Rails i18n
 en:
   label_silencer_suppress_mail: "Suppress email notifications"
-  permission_suppress_mail_notifications: "Suppress email notifications"
-  silencer_default_settings_label: "Enable checkbox to suppress issue email notifications by default?"
+  label_silencer_default: "Suppress notifications by default"
+  permission_suppress_mail_notifications: "Suppress mail notifications"

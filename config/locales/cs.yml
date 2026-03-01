@@ -1,5 +1,4 @@
-# Czech strings go here
 cs:
-  label_silencer_suppress_mail: "Neposílej e-mail"
-  permission_suppress_mail_notifications: "Zobrazit checkbox o neposílání e-mailů"
-  silencer_default_settings_label: "Nastavit výchozí stav checkboxu o neposílání e-mailů na zapnuto"
+  label_silencer_suppress_mail: "Potlačit e-mailové notifikace"
+  label_silencer_default: "Potlačit notifikace ve výchozím nastavení"
+  permission_suppress_mail_notifications: "Potlačit e-mailové notifikace"

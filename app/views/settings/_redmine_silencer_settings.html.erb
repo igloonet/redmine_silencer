@@ -1,4 +1,6 @@
-	<p>
-	  <label><%= l(:silencer_default_settings_label) %></label>
-	  <%= check_box_tag 'settings[silencer_default]', '1', @settings['silencer_default'] %>
-	</p>
+<table>
+  <tr>
+    <td><%= l(:label_silencer_default) %></td>
+    <td><%= check_box_tag 'settings[silencer_default]', '1', @settings['silencer_default'] == '1' %></td>
+  </tr>
+</table>
