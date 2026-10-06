@@ -1,8 +1,8 @@
 Redmine::Plugin.register :redmine_silencer do
   name 'Redmine Silencer'
   author 'igloonet (fork of paginagmbh/redmine_silencer)'
-  description 'Suppress email notifications when updating issues'
-  version '2.0.0'
+  description 'Suppress email notifications when updating issues; status-only updates send none'
+  version '2.1.0'
   url 'https://git.igloonet.cz/redmine/redmine_silencer'
   requires_redmine version_or_higher: '6.0'
 
